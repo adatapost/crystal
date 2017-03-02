@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace CrystalApp
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
-            new Form2().Show();
+            TestReport rep = new CrystalApp.TestReport();
+            rep.SetDataSource(Invoice.Invoices());
+            crystalReportViewer1.ReportSource = rep;
         }
     }
 }
